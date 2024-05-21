@@ -1,0 +1,71 @@
+<RootScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [0, '50dp', 0, '50dp']
+
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # White color (R,G,B,A)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'AI VOICEBOT FOR PERSONAL ASSISTANCE'
+            font_size: '40sp'
+            size_hint_y: None 
+            height: self.texture_size[1]
+            color: 0, 0, 0, 1 
+
+        Image:
+            source: 'botvoice.PNG'  # Replace with the actual image path
+            size_hint_y: None
+            height: '400dp'
+
+        Button:
+            text: 'Get Started'
+            font_size: '25sp'
+            size_hint: (.4, .1)
+            pos_hint: {'center_x': .5,'center_y': .2}
+            on_release: app.switch_to_second_screen()
+
+<SecondScreen>:
+    id: second_screen
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [0, '50dp', 0, '50dp']
+
+
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # White color (R,G,B,A)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Image:
+            source: 'mic.PNG'  # Replace with the actual image path
+            size_hint_y: None
+            height: '200dp'
+
+        Label:
+            id: caption_label
+            text: ''
+            font_size: '25sp'
+            size_hint_y: None 
+            height: self.texture_size[1]
+            color: 0, 0, 0, 1 
+        ScrollView:
+            id: response_scrollview
+            size_hint_y: None
+            height: '200dp'
+            Label:
+                id: response_label
+                text: ''
+                font_size: '20sp'
+                size_hint_y: None 
+                height: '200dp'
+                color: 0, 0, 0, 1
+                font_name: 'Arial'
+                text_size: self.width, None
+                size: self.texture_size
